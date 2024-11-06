@@ -1,6 +1,9 @@
 import { HttpService } from "@nestjs/axios";
+import { Trade } from "./schemas/trade.schema";
+import { Model } from "mongoose";
 export declare class BinanceService {
     private readonly httpService;
-    constructor(httpService: HttpService);
-    fetchRecentTransactions(time: string, symbol: string): Promise<any>;
+    private tradeModel;
+    constructor(httpService: HttpService, tradeModel: Model<Trade>);
+    fetchRecentTransactions(symbol: string): Promise<any>;
 }

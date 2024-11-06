@@ -19,21 +19,20 @@ let BinanceController = class BinanceController {
     constructor(binanceService) {
         this.binanceService = binanceService;
     }
-    fetchRecentTransactions(time, symbol) {
-        this.binanceService.fetchRecentTransactions(time, symbol);
+    fetchRecentTransactions(symbol) {
+        this.binanceService.fetchRecentTransactions(symbol);
     }
 };
 exports.BinanceController = BinanceController;
 __decorate([
-    (0, common_1.Get)(),
-    __param(0, (0, common_1.Body)("time")),
-    __param(1, (0, common_1.Body)("symbol")),
+    (0, common_1.Get)("symbol"),
+    __param(0, (0, common_1.Query)("symbol")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], BinanceController.prototype, "fetchRecentTransactions", null);
 exports.BinanceController = BinanceController = __decorate([
-    (0, common_1.Controller)('binance'),
+    (0, common_1.Controller)("binance"),
     __metadata("design:paramtypes", [binance_service_1.BinanceService])
 ], BinanceController);
 //# sourceMappingURL=binance.controller.js.map

@@ -10,13 +10,19 @@ exports.BinanceModule = void 0;
 const axios_1 = require("@nestjs/axios");
 const common_1 = require("@nestjs/common");
 const binance_service_1 = require("./binance.service");
+const mongoose_1 = require("@nestjs/mongoose");
+const trade_schema_1 = require("./schemas/trade.schema");
 let BinanceModule = class BinanceModule {
 };
 exports.BinanceModule = BinanceModule;
 exports.BinanceModule = BinanceModule = __decorate([
     (0, common_1.Module)({
-        imports: [axios_1.HttpModule],
+        imports: [
+            axios_1.HttpModule,
+            mongoose_1.MongooseModule.forFeature([{ name: trade_schema_1.Trade.name, schema: trade_schema_1.TradeSchema }]),
+        ],
         providers: [binance_service_1.BinanceService],
+        exports: [mongoose_1.MongooseModule],
     })
 ], BinanceModule);
 //# sourceMappingURL=binance.module.js.map
