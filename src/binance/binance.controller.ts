@@ -7,6 +7,15 @@ export class BinanceController {
 
   @Get("symbol")
   fetchRecentTransactions(@Query("symbol") symbol: string) {
-    this.binanceService.fetchRecentTransactions(symbol);
+    return this.binanceService.fetchRecentTransactions(symbol);
+  }
+
+  @Get("analysis")
+  analyse(
+    @Query("symbol") symbol: string,
+    @Query("startTime") startTime: number,
+    @Query("endTime") endTime: number
+  ) {
+    return this.binanceService.analyseHistory(symbol, startTime, endTime);
   }
 }

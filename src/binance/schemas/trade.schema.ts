@@ -9,6 +9,9 @@ export class Trade {
   id: number;
 
   @Prop()
+  symbol: string;
+
+  @Prop()
   price: string;
 
   @Prop()
